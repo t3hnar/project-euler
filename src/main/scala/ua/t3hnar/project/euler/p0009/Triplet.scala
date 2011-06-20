@@ -4,11 +4,7 @@ package ua.t3hnar.project.euler.p0009
  * @author Yaroslav Klymko
  */
 object Triplet {
-  lazy val (a, b, c): (Int, Int, Int) = {
-    val r = row(500)
-    println(r.mkString("\n"))
-    r.head
-  }
+  lazy val (a, b, c): (Int, Int, Int) = row(500).head
 
   private def row(max: Int) = {
     for {a <- 3 to max

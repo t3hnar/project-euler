@@ -7,8 +7,8 @@ import org.specs.Specification
  */
 class Problem9Test extends Specification {
   "Triplet" should {
-    "a2 + b2 = c2" in {
-      (math.pow(Triplet.a, 2) + math.pow(Triplet.c, 2)) must_== math.pow(Triplet.c, 2)
+    "a^2 + b^2 = c^2" in {
+      (math.pow(Triplet.a, 2) + math.pow(Triplet.b, 2)) must_== (math.pow(Triplet.c, 2))
     }
 
     "a + b + c = 1000" in {
