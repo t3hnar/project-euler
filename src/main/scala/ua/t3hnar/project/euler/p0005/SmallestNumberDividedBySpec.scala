@@ -1,11 +1,11 @@
 package ua.t3hnar.project.euler.p0005
 
-import org.specs.Specification
+import org.specs2.mutable.SpecificationWithJUnit
 
 /**
  * @author Yaroslav Klymko aka t3hnar
  */
-class SmallestNumberDividedBySpec extends Specification {
+class SmallestNumberDividedBySpec extends SpecificationWithJUnit {
 
 	"2520 is the smallest number that can be divided by each of the numbers from 1 to 10." in {
 		SmallestNumberDividedBy.calculate(1, 10).must_==(2520)

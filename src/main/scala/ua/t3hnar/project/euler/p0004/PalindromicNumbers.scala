@@ -3,7 +3,7 @@ package ua.t3hnar.project.euler.p0004
 /**
  * @author Yaroslav Klymko aka t3hnar
  */
-object PalindromicNumbers extends Application {
+object PalindromicNumbers extends App {
 
 	def calculate() {
 		val max: Int = 999

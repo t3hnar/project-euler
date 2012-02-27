@@ -3,7 +3,7 @@ package ua.t3hnar.project.euler.p0001
 /**
  * @author Yaroslav Klymko aka t3hnar
  */
-object SumOfMultiples extends Application {
+object SumOfMultiples extends App {
 
 	println(calculate(0 until 1000, 3, 5))
 

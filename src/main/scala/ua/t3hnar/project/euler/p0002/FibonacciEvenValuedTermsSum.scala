@@ -5,7 +5,7 @@ import collection.mutable.ListBuffer
 /**
  * @author Yaroslav Klymko aka t3hnar
  */
-object FibonacciEvenValuedTermsSum extends Application {
+object FibonacciEvenValuedTermsSum extends App {
 
 
 	val max = 4000000;

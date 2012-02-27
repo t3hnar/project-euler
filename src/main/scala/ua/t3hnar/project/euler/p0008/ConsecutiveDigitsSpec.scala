@@ -1,11 +1,11 @@
 package ua.t3hnar.project.euler.p0008
 
-import org.specs.Specification
+import org.specs2.mutable.SpecificationWithJUnit
 
 /**
  * @author Yaroslav Klymko aka t3hnar
  */
-class ConsecutiveDigitsSpec extends Specification {
+class ConsecutiveDigitsSpec extends SpecificationWithJUnit {
 
 	"A ConsecutiveDigits" should {
 

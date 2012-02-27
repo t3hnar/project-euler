@@ -6,7 +6,7 @@ import ua.t3hnar.project.euler.p0003.PrimeFactors
  * @author Yaroslav Klymko aka t3hnar
  */
 
-object SmallestNumberDividedBy extends Application {
+object SmallestNumberDividedBy extends App {
 
 
 	def calculate(min: Int, max: Int) = {

@@ -1,13 +1,13 @@
 package ua.t3hnar.project.euler.p0007
 
-import org.specs.Specification
+import org.specs2.mutable.SpecificationWithJUnit
 
 /**
  * @author Yaroslav Klymko aka t3hnar
  */
-class PrimeAtSpec extends Specification {
+class PrimeAtSpec extends SpecificationWithJUnit {
 
-	"6th prime is 13" in {
+	"6th prime is 13" should {
 		PrimeAt.calculate(6) must be_==(13L)
 	}
 

@@ -1,11 +1,11 @@
 package ua.t3hnar.project.euler.p0001
 
-import org.specs.Specification
+import org.specs2.mutable.SpecificationWithJUnit
 
 /**
  * @author Yaroslav Klymko aka t3hnar
  */
-class SumOfMultiplesSpec extends Specification {
+class SumOfMultiplesSpec extends SpecificationWithJUnit {
 
 	"Sum of denominators of 3 or 5 below 10 should be 23" in {
 		SumOfMultiples.calculate(0 until 10, 3, 5) must be_==(23)

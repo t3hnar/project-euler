@@ -3,7 +3,7 @@ package ua.t3hnar.project.euler.p0003
 /**
  * @author Yaroslav Klymko aka t3hnar
  */
-object PrimeFactors extends Application {
+object PrimeFactors extends App {
 
 	def findMaxPrimeFactor(n: Long) = {
 		val seq = for (i <- 1L to n if (isPrime(i)); if (n % i == 0)) yield i;

@@ -1,11 +1,11 @@
 package ua.t3hnar.project.euler.p0009
 
-import org.specs.Specification
+import org.specs2.mutable.SpecificationWithJUnit
 
 /**
  * @author Yaroslav Klymko
  */
-class Problem9Test extends Specification {
+class Problem9Test extends SpecificationWithJUnit {
   "Triplet" should {
     "a^2 + b^2 = c^2" in {
       (math.pow(Triplet.a, 2) + math.pow(Triplet.b, 2)) must_== (math.pow(Triplet.c, 2))

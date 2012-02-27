@@ -1,11 +1,11 @@
 package ua.t3hnar.project.euler.p0003
 
-import org.specs.Specification
+import org.specs2.mutable.SpecificationWithJUnit
 
 /**
  * @author Yaroslav Klymko aka t3hnar
  */
-class PrimeFactorsSpec extends Specification {
+class PrimeFactorsSpec extends SpecificationWithJUnit {
 
 	"Max prime factor of 6 should be 3" in {
 		PrimeFactors.findMaxPrimeFactor(6) must be_==(3)

@@ -3,7 +3,7 @@ package ua.t3hnar.project.euler.p0006
 /**
  * @author Yaroslav Klymko aka t3hnar
  */
-object DifferenceOfSumsOfSquares extends Application {
+object DifferenceOfSumsOfSquares extends App {
 
 	println(calculate((1 to 100).toSeq))
 
