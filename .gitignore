@@ -1,15 +1,10 @@
-.idea
-# emacs ensime project file
-.ensime
-*.iml
+# Maven
 target
-logs
-src/**/resources/props/*YKlymko.props
-src/**/resources/props/*t3hnar.props
-src/**/resources/props/*gleontiev.props
-src/main/resources/props/production.default.props
-src/main/resources/props/development.default.props
-src/main/webapp/WEB-INF/cloudbees-web.xml
-.props
-test.default.*
-db/fill.sql
+
+# Idea
+.idea/
+*.iml
+*.ipr
+*.iws
+.buildpath
+*.ids

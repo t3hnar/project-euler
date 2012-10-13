@@ -1,4 +1,4 @@
-package ua.t3hnar.project.euler.p0006
+package ua.t3hnar.project.euler.p006
 
 /**
  * @author Yaroslav Klymko aka t3hnar

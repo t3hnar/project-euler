@@ -1,4 +1,4 @@
-package ua.t3hnar.project.euler.p0008
+package ua.t3hnar.project.euler.p008
 
 import collection.immutable.List
 

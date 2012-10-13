@@ -1,6 +1,6 @@
-package ua.t3hnar.project.euler.p0007
+package ua.t3hnar.project.euler.p007
 
-import ua.t3hnar.project.euler.p0003.PrimeFactors
+import ua.t3hnar.project.euler.p003.PrimeFactors
 
 /**
  * @author Yaroslav Klymko aka t3hnar

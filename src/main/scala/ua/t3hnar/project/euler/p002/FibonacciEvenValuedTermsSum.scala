@@ -1,4 +1,4 @@
-package ua.t3hnar.project.euler.p0002
+package ua.t3hnar.project.euler.p002
 
 import collection.mutable.ListBuffer
 

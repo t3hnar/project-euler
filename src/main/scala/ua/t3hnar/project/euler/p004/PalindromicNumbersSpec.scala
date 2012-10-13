@@ -1,4 +1,4 @@
-package ua.t3hnar.project.euler.p0004
+package ua.t3hnar.project.euler.p004
 
 import org.specs2.mutable.SpecificationWithJUnit
 
