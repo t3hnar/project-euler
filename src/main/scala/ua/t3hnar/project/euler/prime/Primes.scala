@@ -8,26 +8,37 @@ import collection.mutable.ListBuffer
  */
 object Primes {
 
+  private val cache = ListBuffer[Long](2, 3)
+
+  private def isComposite(primes: Traversable[Long])(n: Long) = {
+    val sqrt = math.sqrt(n)
+    primes.collectFirst {
+      case p if p > sqrt => false
+      case p if n % p == 0 => true
+    } getOrElse false
+  }
+
+  def isPrime(n: Long) = !isComposite(apply())(n)
+
   def apply(): Stream[Long] = {
-    val ps = ListBuffer[Long]()
 
-    def loop(previous: Long): Stream[Long] = {
-      ps += previous
+    def loop(previous: Long, buffer: List[Long]): Stream[Long] = {
+      def nextPrime(x: Long): Long =
+        if (isComposite(cache)(x)) nextPrime(x + 1) else x
 
-      def nextPrime(x: Long): Long = {
-        val sqrt = math.sqrt(x)
-        val isComposite = ps.collectFirst {
-          case p if p > sqrt => false
-          case p if x % p == 0 => true
-        } getOrElse false
-
-        if (isComposite) nextPrime(x + 1) else x
+      buffer match {
+        case x :: xs => x #:: loop(x, xs)
+        case Nil =>
+          val x = nextPrime(previous + 1)
+          cache += x
+          x #:: loop(x, Nil)
       }
-
-      val prime = nextPrime(previous + 1)
-      prime #:: loop(prime)
     }
 
-    2 #:: loop(2)
+    2 #:: loop(3, cache.toList.tail)
   }
+}
+
+object Prime {
+  def unapply(n: Long): Option[Long] = if (Primes.isPrime(n)) Some(n) else None
 }
