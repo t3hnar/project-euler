@@ -4,15 +4,22 @@ package ua.t3hnar.project
  * @author Yaroslav Klymko
  */
 package object euler {
-  def printlnMillis[T] = printlnDuration[T](System.currentTimeMillis)("") _
-
-  def printlnNanos[T] = printlnDuration[T](System.nanoTime)("") _
-
-  def printlnDuration[T](now: () => Long)(s: String)(f: => T): T = {
+  def countDuration[T](now: () => Long)(f: () => T): (T, Long) = {
     val start = now()
-    val result = f
+    val x = f()
     val end = now()
-    println(s + (end - start))
-    result
+    x -> (end - start)
   }
+
+  def countMillis[T] = countDuration[T](System.currentTimeMillis) _
+  def countNanos[T] = countDuration[T](System.nanoTime) _
+
+  def printlnDuration[T](s: String)(now: () => Long)(f: () => T): T = {
+    val (x, duration) = countDuration(now)(f)
+    println(s.format(duration))
+    x
+  }
+
+  def printlnMillis[T] = printlnDuration[T]("%s ms")(System.currentTimeMillis) _
+  def printlnNanos[T] = printlnDuration[T]("%s ns")(System.nanoTime) _
 }
