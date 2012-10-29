@@ -5,18 +5,8 @@ package ua.t3hnar.project.euler.p001
  */
 object SumOfMultiples extends App {
 
-	println(calculate(0 until 1000, 3, 5))
+  assert(calculate(0 until 1000, 3, 5) == 233168L)
 
-	def calculate(seq: Seq[Int], denominators: Int*): Long = {
-		var sum: Int = 0
-
-		val set = (for {
-			denominator <- denominators
-			number <- seq if (number % denominator == 0)
-		} yield number).toSet
-
-		val add = (x: Int) => sum = sum + x
-		set.foreach(number => add(number))
-		sum
-	}
+  def calculate(ns: Seq[Int], ds: Int*): Long =
+    (for (n <- ns; d <- ds if (n % d == 0)) yield n).toSet.sum
 }
