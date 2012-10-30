@@ -6,12 +6,6 @@ package p012
  */
 object Problem12 extends App {
 
-  object NaturalNumbers {
-    def apply(): Stream[Long] = apply(1)
-
-    def apply(from: Long): Stream[Long] = from #:: apply(from + 1)
-  }
-
   object TriangleNumbers {
     def apply(): Stream[Long] = {
       val naturals = NaturalNumbers(2).iterator
