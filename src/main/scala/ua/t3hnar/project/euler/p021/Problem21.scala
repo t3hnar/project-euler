@@ -13,8 +13,6 @@ object Problem21 extends App {
   assert(properDivisors(220) == Seq(1, 2, 4, 5, 10, 11, 20, 22, 44, 55, 110))
   assert(properDivisors(284) == Seq(1, 2, 4, 71, 142))
   assert(d(220) == 284)
-  println(d2(220))
-  assert(d2(220) == 284)
 
 
   def isAmicablePair(n1: Int, n2: Int): Boolean =
