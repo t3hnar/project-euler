@@ -8,7 +8,7 @@ object Problem12 extends App {
 
   object TriangleNumbers {
     def apply(): Stream[Long] = {
-      val naturals = NaturalNumbers(2).iterator
+      val naturals = Naturals(2L).iterator
       def loop(x: Long): Stream[Long] = x #:: loop(x + naturals.next())
       loop(1)
     }

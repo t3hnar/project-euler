@@ -1,7 +1,7 @@
 package ua.t3hnar.project.euler
 package p050
 
-import prime.Primes
+import primes.Primes
 import collection.SortedSet
 
 /**
@@ -10,7 +10,7 @@ import collection.SortedSet
 object Problem50 extends App {
 
   def longestSumOfConsecutivePrimesBelow(limit: Int) = {
-    val primes = SortedSet(Primes().takeWhile(_ < limit): _*)
+    val primes = SortedSet(Primes.stream.takeWhile(_ < limit): _*)
 
     val sums = (List(0L) /: primes) {
       case (xs, p) => (xs.head + p) :: xs

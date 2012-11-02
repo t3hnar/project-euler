@@ -1,7 +1,7 @@
 package ua.t3hnar.project.euler
 package p005
 
-import prime.Primes
+import primes.Primes
 
 /**
  * @author Yaroslav Klymko

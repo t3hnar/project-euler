@@ -1,7 +1,7 @@
 package ua.t3hnar.project.euler
 package p035
 
-import prime.Primes
+import primes.Primes
 
 /**
  * @author Yaroslav Klymko
@@ -9,7 +9,7 @@ import prime.Primes
 object Problem35 extends App {
 
   def countCircularPrimesBelow(n: Long): Long =
-    (Primes().takeWhile(_ <= n) filter isCircular).size
+    (Primes.stream.takeWhile(_ <= n) filter isCircular).size
 
   def isCircular(n: Long): Boolean = {
     val cs = n.toString.toList

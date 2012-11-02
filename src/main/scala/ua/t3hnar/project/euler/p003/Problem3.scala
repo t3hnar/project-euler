@@ -1,7 +1,7 @@
 package ua.t3hnar.project.euler
 package p003
 
-import prime.Primes
+import primes.Primes
 
 /**
  * @author Yaroslav Klymko
@@ -10,7 +10,7 @@ object Problem3 extends App {
 
   def largestPrimeFactorOf_Simple(n: Long): Long = {
     val max = math.sqrt(n)
-    Primes().takeWhile(_ <= max).reverse.collectFirst {
+    Primes.stream.takeWhile(_ <= max).reverse.collectFirst {
       case p if n % p == 0 => p
     } getOrElse n
   }
