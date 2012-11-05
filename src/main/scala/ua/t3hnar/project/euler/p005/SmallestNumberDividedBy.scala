@@ -1,7 +1,7 @@
 package ua.t3hnar.project.euler
 package p005
 
-import primes.Primes
+import primes.Primes.isPrime
 
 /**
  * @author Yaroslav Klymko
@@ -9,15 +9,12 @@ import primes.Primes
 
 object SmallestNumberDividedBy extends App {
 
-
-  def calculate(min: Int, max: Int) = {
-    val arr = min to max
-    val primes = for (i <- arr if (Primes.isPrime(i))) yield i
-    var n = 1L
-    for (i <- primes) {
-      val pow = math.pow(max, (1d / i.toDouble))
-      n = n * math.pow(i, pow.floor).toLong
+  def calculate(min: Long, max: Long) = {
+    val primes = (min to max) filter isPrime
+    (1L /: primes) {
+      case (n, p) =>
+        val pow = math.pow(max, (1d / p))
+        n * math.pow(p, pow.floor).toLong
     }
-    n
   }
 }
