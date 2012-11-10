@@ -10,9 +10,9 @@ class RichNumeric[T](n: T)(implicit num: Numeric[T]) {
   def !(implicit integral: Integral[T]): T =
     NumericRange.inclusive(num.one, n, num.one).product
 
-  def sumOfDigits: T = (digits map num.fromInt).sum
+  lazy val sumOfDigits: T = (digits map num.fromInt).sum
 
-  def digits: Seq[Int] = n.toString.map(_.asDigit)
+  lazy val digits: Seq[Int] = n.toString.map(_.asDigit)
 
   //  def sumOfDivisors: T =
 //  def sumOfDivisors: T = num.minus(sumOfDivisors, n)
