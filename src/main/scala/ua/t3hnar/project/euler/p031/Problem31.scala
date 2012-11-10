@@ -1,8 +1,6 @@
 package ua.t3hnar.project.euler
 package p031
 
-import collection.SortedSet
-
 /**
  * @author Yaroslav Klymko
  */
