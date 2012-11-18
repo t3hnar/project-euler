@@ -38,6 +38,16 @@ class RichLong(n: Long) extends RichNumeric[Long](n) {
     inner(n, Primes.stream)
   }
 
+  def concatenate(other: Long): Long = (this.digits ++ new RichLong(other).digits).mkString.toLong
+
+  def numberOfDigits: Int = {
+    def loop(n: Long): Int = {
+      val x = n / 10
+      if (x == 0) 1 else 1 + loop(x)
+    }
+    loop(n)
+  }
+
   def sumOfDivisors: Long =
     if (n == 1) 0
     else primeFactors.map {
