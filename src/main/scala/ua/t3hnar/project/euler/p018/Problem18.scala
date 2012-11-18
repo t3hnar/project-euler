@@ -1,4 +1,7 @@
-package ua.t3hnar.project.euler.p018
+package ua.t3hnar.project.euler
+package p018
+
+import Triangle.maximumTotal
 
 /**
  * @author Yaroslav Klymko
@@ -23,37 +26,10 @@ object Problem18 extends App {
                        """
 
 
-  val matrix = triangleString.split('\n').map(_.split(' ').filterNot(_.isEmpty).map(_.toInt)).filterNot(_.isEmpty)
+  val matrix = triangleString
+    .split('\n').toList
+    .map(_.split(' ').toList.filterNot(_.isEmpty).map(_.toInt))
+    .filterNot(_.isEmpty)
 
-  sealed trait Node {
-    def left: Node
-    def right: Node
-    def isEmpty: Boolean
-    def max: Long
-  }
-
-  case class ValueNode(value: Long, left: Node, right: Node) extends Node {
-    def isEmpty = false
-    lazy val max = value + (left.max max right.max)
-  }
-
-  case object EmptyNode extends Node {
-    def left = sys.error("EmptyNode.left")
-    def right = sys.error("EmptyNode.right")
-    def isEmpty = true
-    def max = 0
-  }
-
-
-  def node(m: Array[Array[Int]]): Node = {
-    def loop(m: List[Array[Int]], idx: Int): Node = m match {
-      case Nil => EmptyNode
-      case x :: xs => ValueNode(x(idx), loop(xs, idx), loop(xs, idx + 1))
-    }
-    loop(m.toList, 0)
-  }
-
-
-  assert(node(matrix).max == 1074)
-
+  assert(maximumTotal(matrix) == 1074)
 }
