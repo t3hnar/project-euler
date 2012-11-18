@@ -6,15 +6,6 @@ package p012
  */
 object Problem12 extends App {
 
-  object TriangleNumbers {
-    def apply(): Stream[Long] = {
-      val naturals = Naturals(2L).iterator
-      def loop(x: Long): Stream[Long] = x #:: loop(x + naturals.next())
-      loop(1)
-    }
-  }
-
-
   def numberOfDivisors(n: Long): Int = {
     val sqrt = math.sqrt(n)
 
@@ -28,7 +19,7 @@ object Problem12 extends App {
   }
 
 
-  assert(TriangleNumbers()(6) == 28)
-  assert(TriangleNumbers().find(numberOfDivisors(_) > 5).get == 28)
-  assert(TriangleNumbers().find(numberOfDivisors(_) >  500).get == 76576500)
+  assert(Triangles.stream(6) == 28)
+  assert(Triangles.stream.find(numberOfDivisors(_) > 5).get == 28)
+  assert(Triangles.stream.find(numberOfDivisors(_) >  500).get == 76576500)
 }
