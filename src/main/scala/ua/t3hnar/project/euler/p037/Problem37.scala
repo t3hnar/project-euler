@@ -40,8 +40,8 @@ object Problem37 extends App {
     loop(List(2L, 3, 5, 7))
   }
 
-  val truncatableRightToLeft = foldPrimes((x, y) => x concatenate y, (0 to 9))
-  val truncatableLeftToRight = foldPrimes((x, y) => y concatenate x, (1 to 9))
+  val truncatableRightToLeft = foldPrimes((x, y) => x concat y, (0 to 9))
+  val truncatableLeftToRight = foldPrimes((x, y) => y concat x, (1 to 9))
 
   val truncatable = for {
     x <- truncatableRightToLeft

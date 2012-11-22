@@ -12,7 +12,7 @@ class RichNumeric[T](n: T)(implicit num: Numeric[T]) {
 
   lazy val sumOfDigits: T = (digits map num.fromInt).sum
 
-  lazy val digits: Seq[Int] = n.toString.map(_.asDigit)
+  def digits: Seq[Int] = n.toString.map(_.asDigit)
 
   //  def sumOfDivisors: T =
 //  def sumOfDivisors: T = num.minus(sumOfDivisors, n)
@@ -38,7 +38,18 @@ class RichLong(n: Long) extends RichNumeric[Long](n) {
     inner(n, Primes.stream)
   }
 
-  def concatenate(other: Long): Long = (this.digits ++ new RichLong(other).digits).mkString.toLong
+  override lazy val digits: Seq[Int] = {
+    def loop(n: Long, ds: List[Int]): List[Int] =
+      if (n == 0) ds
+      else loop(n / 10, (n % 10).toInt :: ds)
+
+    loop(n, Nil)
+  }
+
+  def concat(other: Long): Long = {
+    (this.digits ++ new RichLong(other).digits).mkString.toLong
+    //    math.pow(10, new RichLong(other).numberOfDigits).toLong * this.n + other
+  }
 
   def numberOfDigits: Int = {
     def loop(n: Long): Int = {
