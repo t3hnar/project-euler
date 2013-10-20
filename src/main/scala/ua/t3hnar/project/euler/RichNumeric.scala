@@ -67,6 +67,18 @@ class RichLong(n: Long) extends RichNumeric[Long](n) {
     }.product - n
 
   def properDivisors: Seq[Long] = (1L until (n / 2 + 1)).filter(x => n % x == 0)
+
+  def numberOfDivisors: Int = {
+    val sqrt = math.sqrt(n)
+
+    def loop(i: Int, nod: Int): Int =
+      if (i > sqrt) nod
+      else if (n % i == 0) loop(i + 1, nod + 2)
+      else loop(i + 1, nod)
+
+    val nod = loop(1, 0)
+    if (sqrt * sqrt == n) nod - 1 else nod
+  }
 }
 
 object RichNumeric {

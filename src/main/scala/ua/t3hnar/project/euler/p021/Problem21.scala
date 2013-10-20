@@ -7,12 +7,10 @@ import RichNumeric._
  */
 object Problem21 extends App {
 
-  def properDivisors(n: Long): Seq[Long] = (1L until (n / 2 + 1)).filter(x => n % x == 0)
-
   def d(n: Long): Long = n.sumOfDivisors
 
-  assert(properDivisors(220) == Seq(1, 2, 4, 5, 10, 11, 20, 22, 44, 55, 110))
-  assert(properDivisors(284) == Seq(1, 2, 4, 71, 142))
+  assert(220L.properDivisors == Seq(1, 2, 4, 5, 10, 11, 20, 22, 44, 55, 110))
+  assert(282L.properDivisors == Seq(1, 2, 4, 71, 142))
   assert(d(220) == 284)
 
 
